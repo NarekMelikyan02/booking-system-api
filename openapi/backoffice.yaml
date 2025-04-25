@@ -1,0 +1,30 @@
+openapi: 3.1.0
+info:
+  title: Backoffice endpoints for Booking app
+  description: Backoffice endpoints for Booking app
+  version: 1.0.0
+paths:
+  /bookings:
+    get:
+      summary: List bookings
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Booking'
+
+components:
+  schemas:
+    Booking:
+      type: object
+      properties:
+        id:
+          type: string
+        date:
+          type: string
+          format: date
+
+
+  

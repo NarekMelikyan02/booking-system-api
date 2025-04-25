@@ -1,0 +1,86 @@
+plugins {
+    id 'java'
+    alias(libs.plugins.springframework.boot)
+    alias(libs.plugins.spring.dependency.management)
+    alias(libs.plugins.openapi.generator.plugin)
+}
+
+group = 'com.app'
+version = '0.0.1'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(libs.versions.java.get().toInteger())
+    }
+}
+tasks.withType(JavaCompile).each {
+    it.options.compilerArgs.add('--enable-preview')
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += '--enable-preview'
+}
+
+tasks.withType(Test).configureEach {
+    jvmArgs += '--enable-preview'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation libs.sprinb.boot.actuator
+    implementation libs.spring.boot.starter.jdbc
+    implementation libs.spring.boot.starter.web
+    implementation libs.flyway.core
+    implementation libs.flyway.database.postgres
+    implementation libs.spring.boot.starter.security
+    implementation libs.spring.oauth
+    implementation libs.vavr
+    testImplementation libs.spring.security.test
+    runtimeOnly libs.postgres.driver
+    testImplementation libs.spring.boot.starter.test
+    testRuntimeOnly libs.junit.platform
+}
+
+openApiGenerate {
+    generatorName.set('spring')
+    inputSpec.set("$rootDir/../booking-system/openapi/backoffice.yaml")
+    outputDir.set("$rootDir")
+    apiPackage.set('com.app.bookingsystem.port.adapter.backoffice.resources.api')
+    invokerPackage.set('com.app.bookingsystem.port.adapter.backoffice.resources.invoker')
+    modelPackage.set('com.app.bookingsystem.port.adapter.backoffice.resources.model')
+    generateApiDocumentation.set(false)
+    generateApiTests.set(false)
+    generateModelDocumentation.set(false)
+    generateModelTests.set(false)
+    skipOverwrite.set(false)
+    skipOperationExample.set(true)
+    configOptions.put("library", "spring-boot")
+    configOptions.put("dateLibrary", "java8")
+    configOptions.put("delegatePattern", "false")
+    configOptions.put("interfaceOnly", "true")
+    configOptions.put("hideGenerationTimestamp", "true")
+    configOptions.put("sourceFolder", "src/main/java")
+    configOptions.put("useTags", "true")
+    configOptions.put("useBeanValidation", "true")
+    configOptions.put("performBeanValidation", "false")
+    configOptions.put("openApiNullable", "true")
+    configOptions.put("legacyDiscriminatorBehavior", "false")
+    configOptions.put("documentationProvider", "none")
+    configOptions.put("annotationLibrary", "none")
+    configOptions.put("useSpringBoot3", "true")
+    configOptions.put("useOneOfInterfaces", "true")
+    configOptions.put("skipDefaultInterface", "true")
+    configOptions.put("hideGenerationTimestamp", "true")
+    configOptions.put("apiUtil", "false")
+    typeMappings.put("OffsetDateTime", "java.time.LocalDateTime")
+    typeMappings.put("Double", "java.math.BigDecimal")
+    typeMappings.put("UUID", "java.lang.String")
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+

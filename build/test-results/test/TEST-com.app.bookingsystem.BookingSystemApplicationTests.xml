@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.app.bookingsystem.BookingSystemApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-04-24T16:32:50.121Z" hostname="user925-ThinkPad-T14-Gen-1" time="0.773">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.app.bookingsystem.BookingSystemApplicationTests" time="0.773"/>
+  <system-out><![CDATA[20:32:47.065 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.app.bookingsystem.BookingSystemApplicationTests]: BookingSystemApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:32:47.177 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.app.bookingsystem.BookingSystemApplication for test class com.app.bookingsystem.BookingSystemApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2025-04-24T20:32:47.563+04:00  INFO 1534777 --- [    Test worker] c.a.b.BookingSystemApplicationTests      : Starting BookingSystemApplicationTests using Java 21.0.2 with PID 1534777 (started by user925 in /home/user925/IdeaProjects/booking-system)
+2025-04-24T20:32:47.564+04:00  INFO 1534777 --- [    Test worker] c.a.b.BookingSystemApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2025-04-24T20:32:49.258+04:00  INFO 1534777 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-04-24T20:32:49.354+04:00  INFO 1534777 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@118cbded
+2025-04-24T20:32:49.356+04:00  INFO 1534777 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-04-24T20:32:49.391+04:00  INFO 1534777 --- [    Test worker] org.flywaydb.core.FlywayExecutor         : Database: jdbc:postgresql://localhost:5432/postgres (PostgreSQL 17.2)
+2025-04-24T20:32:49.450+04:00  INFO 1534777 --- [    Test worker] o.f.core.internal.command.DbValidate     : Successfully validated 0 migrations (execution time 00:00.027s)
+2025-04-24T20:32:49.450+04:00  WARN 1534777 --- [    Test worker] o.f.core.internal.command.DbValidate     : No migrations found. Are your locations set up correctly?
+2025-04-24T20:32:49.487+04:00  INFO 1534777 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Current version of schema "public": << Empty Schema >>
+2025-04-24T20:32:49.491+04:00  INFO 1534777 --- [    Test worker] o.f.core.internal.command.DbMigrate      : Schema "public" is up to date. No migration necessary.
+2025-04-24T20:32:49.819+04:00  INFO 1534777 --- [    Test worker] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-04-24T20:32:49.982+04:00  INFO 1534777 --- [    Test worker] c.a.b.BookingSystemApplicationTests      : Started BookingSystemApplicationTests in 2.675 seconds (process running for 3.747)
+]]></system-out>
+  <system-err><![CDATA[Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build what is described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (/home/user925/.gradle/caches/modules-2/files-2.1/net.bytebuddy/byte-buddy-agent/1.15.11/a38b16385e867f59a641330f0362ebe742788ed8/byte-buddy-agent-1.15.11.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

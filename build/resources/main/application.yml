@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 30
+    username: postgres
+    password: postgres
+  flyway:
+    sql-migration-separator: "--"
+    locations: classpath:db/migration, classpath:db/data
+    validate-on-migrate: true

@@ -1,0 +1,23 @@
+[versions]
+java = '21'
+spring-boot = '3.4.4'
+openapi-generator = '7.12.0'
+
+[plugins]
+springframework-boot = { id = "org.springframework.boot", version.ref = "spring-boot" }
+spring-dependency-management = { id = "io.spring.dependency-management", version = "1.1.7" }
+openapi-generator-plugin = { id = 'org.openapi.generator', version.ref = 'openapi-generator' }
+
+[libraries]
+vavr = { module = 'io.vavr:vavr', version = '0.10.6' }
+sprinb-boot-actuator = { module = 'org.springframework.boot:spring-boot-starter-actuator' }
+spring-boot-starter-jdbc = { module = 'org.springframework.boot:spring-boot-starter-jdbc' }
+spring-boot-starter-web = { module = 'org.springframework.boot:spring-boot-starter-web' }
+spring-boot-starter-test = { module = 'org.springframework.boot:spring-boot-starter-test' }
+spring-boot-starter-security = { module = 'org.springframework.boot:spring-boot-starter-security' }
+flyway-core = { module = 'org.flywaydb:flyway-core' }
+flyway-database-postgres = { module = 'org.flywaydb:flyway-database-postgresql' }
+spring-oauth = { module = 'org.springframework.boot:spring-boot-starter-oauth2-client' }
+spring-security-test = { module = 'org.springframework.security:spring-security-test' }
+postgres-driver = { module = 'org.postgresql:postgresql' }
+junit-platform = { module = 'org.junit.platform:junit-platform-launcher' }
