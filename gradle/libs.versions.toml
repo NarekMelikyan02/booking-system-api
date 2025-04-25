@@ -10,6 +10,9 @@ openapi-generator-plugin = { id = 'org.openapi.generator', version.ref = 'openap
 
 [libraries]
 vavr = { module = 'io.vavr:vavr', version = '0.10.6' }
+jakarta-annotation-api = { module = "jakarta.annotation:jakarta.annotation-api" }
+jakarta-validation-api = { module = "jakarta.validation:jakarta.validation-api" }
+jackson-databind-nullable = { module = "org.openapitools:jackson-databind-nullable", version = "0.2.6" }
 sprinb-boot-actuator = { module = 'org.springframework.boot:spring-boot-starter-actuator' }
 spring-boot-starter-jdbc = { module = 'org.springframework.boot:spring-boot-starter-jdbc' }
 spring-boot-starter-web = { module = 'org.springframework.boot:spring-boot-starter-web' }

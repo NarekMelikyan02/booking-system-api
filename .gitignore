@@ -1,0 +1,66 @@
+# User-specific stuff
+.idea/
+*.iml
+*.iws
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Build output
+/out/
+target/
+build/
+
+# Logs
+*.log
+
+# Compiled files
+*.class
+
+# Gradle
+.gradle/
+!gradle-wrapper.jar
+gradle-app.setting
+build/
+
+# Maven
+/logs/
+target/
+
+# Temporary files
+*.tmp
+*.swp
+
+# JetBrains IDE settings
+.idea/
+*.ipr
+*.iws
+*.iml
+
+# Auto-save files
+__pycache__/
+*.swo
+*.bak
+*.old
+
+# Kotlin specific
+*.kotlin_module
+
+# Virtual machines
+*.vbox
+*.vbox-prev
+*.vdi
+*.vmdk
+*.nvram
+*.vmem
+*.vmss
+*.vmsd
+*.vmx
+*.vmxf
+
+# Others
+*.log
+*.pid
+*.seed
+*.pid.lock

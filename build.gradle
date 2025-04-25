@@ -34,6 +34,9 @@ dependencies {
     implementation libs.spring.boot.starter.jdbc
     implementation libs.spring.boot.starter.web
     implementation libs.flyway.core
+    implementation libs.jakarta.annotation.api
+    implementation libs.jakarta.validation.api
+    implementation libs.jackson.databind.nullable
     implementation libs.flyway.database.postgres
     implementation libs.spring.boot.starter.security
     implementation libs.spring.oauth
