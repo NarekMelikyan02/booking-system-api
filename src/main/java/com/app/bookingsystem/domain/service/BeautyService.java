@@ -58,5 +58,11 @@ public record BeautyService(
         {
             return this.id;
         }
+
+        @Nonnull
+        public static Id of(@Nonnull String value)
+        {
+            return new Id(value);
+        }
     }
 }

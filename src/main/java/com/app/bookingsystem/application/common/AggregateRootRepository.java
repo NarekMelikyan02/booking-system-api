@@ -3,6 +3,7 @@ package com.app.bookingsystem.application.common;
 import java.util.Collection;
 import java.util.List;
 
+import com.app.bookingsystem.application.common.model.ThingMetadata;
 import com.app.bookingsystem.kernel.AggregateRoot;
 import com.app.bookingsystem.kernel.AggregateRootId;
 import io.vavr.control.Either;
@@ -18,9 +19,9 @@ public interface AggregateRootRepository<I extends AggregateRootId, A extends Ag
     List<A> ofIds(@Nonnull Collection<I> ids);
 
     @Nonnull
-    Either<RuntimeException, A> update(@Nonnull A aggregateRoot, @Nonnull String username);
+    Either<RuntimeException, A> update(@Nonnull A aggregateRoot, @Nonnull ThingMetadata metadata);
 
-    void add(@Nonnull A aggregateRoot, @Nonnull String username);
+    Either<RuntimeException ,Void> add(@Nonnull A aggregateRoot, @Nonnull ThingMetadata metadata);
 
-    void remove(@Nonnull I id, @Nonnull String username);
+    Either<RuntimeException ,Void> remove(@Nonnull I id);
 }

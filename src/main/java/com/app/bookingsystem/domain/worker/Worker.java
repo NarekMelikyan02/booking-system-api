@@ -5,6 +5,7 @@ import static com.app.bookingsystem.kernel.Guard.argsNotBlank;
 import java.util.List;
 import java.util.UUID;
 
+import com.app.bookingsystem.domain.apointment.Appointment;
 import com.app.bookingsystem.domain.barebershop.Barbershop;
 import com.app.bookingsystem.domain.common.Gender;
 import com.app.bookingsystem.kernel.Identifier;
@@ -55,6 +56,12 @@ public record Worker(
         public static Id generate()
         {
             return new Id(UUID.randomUUID().toString());
+        }
+
+        @Nonnull
+        public static Id of(@Nonnull String value)
+        {
+            return new Id(value);
         }
     }
 }

@@ -4,8 +4,8 @@ import java.time.Instant;
 import java.util.UUID;
 
 import com.app.bookingsystem.domain.service.BeautyService;
-import com.app.bookingsystem.domain.worker.Worker;
 import com.app.bookingsystem.domain.user.Client;
+import com.app.bookingsystem.domain.worker.Worker;
 import com.app.bookingsystem.kernel.AggregateRoot;
 import com.app.bookingsystem.kernel.AggregateRootId;
 import jakarta.annotation.Nonnull;
@@ -33,6 +33,12 @@ public record Appointment(
         public static Id generate()
         {
             return new Id(UUID.randomUUID().toString());
+        }
+
+        @Nonnull
+        public static Id of(@Nonnull String value)
+        {
+            return new Id(value);
         }
     }
 }

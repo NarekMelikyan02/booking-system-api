@@ -23,7 +23,7 @@ public record Client(
         @Nonnull String email
     )
     {
-        if(name.isBlank() || email.isBlank())
+        if (name.isBlank() || email.isBlank())
         {
             return Either.left(new IllegalArgumentException("Name or email cannot be empty"));
         }
@@ -51,6 +51,12 @@ public record Client(
         public static Id generate()
         {
             return new Id(UUID.randomUUID().toString());
+        }
+
+        @Nonnull
+        public static Id of(@Nonnull String value)
+        {
+            return new Id(value);
         }
     }
 }

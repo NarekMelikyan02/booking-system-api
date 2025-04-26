@@ -2,6 +2,7 @@ package com.app.bookingsystem.domain.barebershop;
 
 import static com.app.bookingsystem.kernel.Guard.argNotBlank;
 
+import java.time.Instant;
 import java.util.UUID;
 
 import com.app.bookingsystem.domain.adress.Address;
@@ -13,7 +14,9 @@ import jakarta.annotation.Nonnull;
 public record Barbershop(
     @Nonnull Id id,
     @Nonnull String name,
-    @Nonnull Address.Id address
+    @Nonnull Address.Id address,
+    @Nonnull Instant opensAt,
+    @Nonnull Instant closesAt
 ) implements AggregateRoot<Barbershop.Id>
 {
 
@@ -22,7 +25,7 @@ public record Barbershop(
     {
         try
         {
-            return Either.right(new Barbershop(this.id, name, this.address));
+            return Either.right(new Barbershop(this.id, name, this.address, this.opensAt, this.closesAt));
         }
         catch (RuntimeException e)
         {
@@ -35,7 +38,7 @@ public record Barbershop(
     {
         try
         {
-            return Either.right(new Barbershop(this.id, this.name, address));
+            return Either.right(new Barbershop(this.id, this.name, address, this.opensAt, this.closesAt));
         }
         catch (RuntimeException e)
         {
@@ -46,13 +49,15 @@ public record Barbershop(
     @Nonnull
     public static Either<RuntimeException, Barbershop> create(
         @Nonnull String name,
-        @Nonnull Address.Id address
+        @Nonnull Address.Id address,
+        @Nonnull Instant opensAt,
+        @Nonnull Instant closesAt
     )
     {
         try
         {
             argNotBlank(name);
-            return Either.right(new Barbershop(Id.generate(), name, address));
+            return Either.right(new Barbershop(Id.generate(), name, address, opensAt, closesAt));
         }
         catch (RuntimeException e)
         {
