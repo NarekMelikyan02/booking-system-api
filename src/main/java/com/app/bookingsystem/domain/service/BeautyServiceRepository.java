@@ -19,5 +19,5 @@ public interface BeautyServiceRepository
     Either<RuntimeException, Void> remove(@Nonnull BeautyService.Id id);
 
     @Nonnull
-    Either<RuntimeException, List<BeautyService>> ofIds(@Nonnull Collection<BeautyService.Id> ids);
+    List<BeautyService> ofIds(@Nonnull Collection<BeautyService.Id> ids);
 }

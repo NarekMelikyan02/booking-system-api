@@ -1,5 +1,7 @@
 package com.app.bookingsystem.domain.common;
 
+import java.util.Arrays;
+
 import jakarta.annotation.Nonnull;
 
 public enum Gender
@@ -12,5 +14,14 @@ public enum Gender
     Gender(String label) {this.label = label;}
 
     @Nonnull
-    public String getLabel() {return this.label;}
+    public String label() {return this.label;}
+
+    @Nonnull
+    public static Gender of(@Nonnull String label)
+    {
+        return Arrays.stream(Gender.values())
+            .filter(gender -> gender.label.equals(label))
+            .findFirst()
+            .orElseThrow(() -> new IllegalArgumentException(STR."Invalid gender: \{label}"));
+    }
 }

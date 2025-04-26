@@ -12,7 +12,7 @@ import com.app.bookingsystem.application.common.model.ThingMetadata;
 import com.app.bookingsystem.domain.apointment.Appointment;
 import com.app.bookingsystem.domain.apointment.AppointmentRepository;
 import com.app.bookingsystem.domain.service.BeautyService;
-import com.app.bookingsystem.domain.user.Client;
+import com.app.bookingsystem.domain.client.Client;
 import com.app.bookingsystem.domain.worker.Worker;
 import com.app.bookingsystem.exceptions.ThingNotFoundException;
 import com.app.bookingsystem.port.adapter.helper.JsonMapper;

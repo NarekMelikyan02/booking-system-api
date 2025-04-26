@@ -4,7 +4,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 import com.app.bookingsystem.domain.service.BeautyService;
-import com.app.bookingsystem.domain.user.Client;
+import com.app.bookingsystem.domain.client.Client;
 import com.app.bookingsystem.domain.worker.Worker;
 import com.app.bookingsystem.kernel.AggregateRoot;
 import com.app.bookingsystem.kernel.AggregateRootId;

@@ -5,7 +5,6 @@ import static com.app.bookingsystem.kernel.Guard.argsNotBlank;
 import java.util.List;
 import java.util.UUID;
 
-import com.app.bookingsystem.domain.apointment.Appointment;
 import com.app.bookingsystem.domain.barebershop.Barbershop;
 import com.app.bookingsystem.domain.common.Gender;
 import com.app.bookingsystem.kernel.Identifier;
@@ -16,6 +15,7 @@ public record Worker(
     @Nonnull Id id,
     @Nonnull String firstName,
     @Nonnull String lastName,
+    @Nonnull String email,
     @Nonnull Integer age,
     @Nonnull Gender gender,
     @Nonnull Barbershop.Id barbershop
@@ -27,6 +27,7 @@ public record Worker(
         @Nonnull String firstName,
         @Nonnull String lastName,
         @Nonnull Integer age,
+        @Nonnull String email,
         @Nonnull Gender gender,
         @Nonnull Barbershop.Id barbershop
     )
@@ -34,7 +35,7 @@ public record Worker(
         argsNotBlank(List.of(firstName, lastName));
         try
         {
-            return Either.right(new Worker(Id.generate(), firstName, lastName, age, gender, barbershop));
+            return Either.right(new Worker(Id.generate(), firstName, lastName, email, age, gender, barbershop));
         }
         catch (RuntimeException e)
         {

@@ -18,13 +18,12 @@ create table if not exists barbershop
 
 create table if not exists worker
 (
-    id            uuid unique         not null,
-    first_name    text                not null,
-    last_name     text                not null,
-    email         varchar(256) unique not null,
-    age           int                 not null,
-    gender        varchar(32)         not null,
-    barbershop_id uuid unique         not null,
+    id            uuid unique not null,
+    first_name    text        not null,
+    last_name     text        not null,
+    age           int         not null,
+    gender        varchar(32) not null,
+    barbershop_id uuid unique not null,
     primary key (id),
     foreign key (barbershop_id) references barbershop (id)
     );
@@ -41,7 +40,7 @@ create table if not exists client
 create table if not exists beauty_service
 (
     id           uuid unique not null,
-    cost         bigint,
+    cost         float,
     service_kind jsonb       not null,
     primary key (id)
     );

@@ -1,4 +1,4 @@
-package com.app.bookingsystem.domain.user;
+package com.app.bookingsystem.domain.client;
 
 import java.util.UUID;
 
