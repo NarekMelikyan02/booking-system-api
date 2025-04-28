@@ -19,6 +19,7 @@ spring-boot-starter-web = { module = 'org.springframework.boot:spring-boot-start
 spring-boot-starter-test = { module = 'org.springframework.boot:spring-boot-starter-test' }
 spring-boot-starter-security = { module = 'org.springframework.boot:spring-boot-starter-security' }
 flyway-core = { module = 'org.flywaydb:flyway-core' }
+spring-data-commons = { module = "org.springframework.data:spring-data-commons" }
 flyway-database-postgres = { module = 'org.flywaydb:flyway-database-postgresql' }
 spring-oauth = { module = 'org.springframework.boot:spring-boot-starter-oauth2-client' }
 spring-security-test = { module = 'org.springframework.security:spring-security-test' }

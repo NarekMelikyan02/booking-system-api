@@ -8,7 +8,7 @@ public enum SecurityRole
 {
     USER("USER"),
     ADMIN("ADMIN"),
-    SUPER_ADMIN("SUPER_ADMIN");
+    SUPER_USER("SUPER_USER");
 
     @Nonnull
     private final GrantedAuthority grantedAuthority;

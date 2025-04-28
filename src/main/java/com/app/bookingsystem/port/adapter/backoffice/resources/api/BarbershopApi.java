@@ -5,7 +5,7 @@
  */
 package com.app.bookingsystem.port.adapter.backoffice.resources.api;
 
-import com.app.bookingsystem.port.adapter.backoffice.resources.model.Booking;
+import com.app.bookingsystem.port.adapter.backoffice.resources.model.BarbershopInfo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,20 +23,20 @@ import jakarta.annotation.Generated;
 
 @Generated(value = "org.openapitools.codegen.languages.SpringCodegen", comments = "Generator version: 7.12.0")
 @Validated
-public interface DefaultApi {
+public interface BarbershopApi {
 
     /**
-     * GET /bookings : List bookings
+     * GET /barbershops : List of all barbershops
      *
      * @return Success (status code 200)
      */
     @RequestMapping(
         method = RequestMethod.GET,
-        value = "/bookings",
+        value = "/barbershops",
         produces = { "application/json" }
     )
     
-    ResponseEntity<Booking> bookingsGet(
+    ResponseEntity<BarbershopInfo> getAllBarbershops(
         
     );
 

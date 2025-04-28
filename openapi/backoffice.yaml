@@ -4,27 +4,60 @@ info:
   description: Backoffice endpoints for Booking app
   version: 1.0.0
 paths:
-  /bookings:
+  /barbershops:
     get:
-      summary: List bookings
+      tags:
+        - Barbershop
+      summary: List of all barbershops
+      operationId: getAllBarbershops
       responses:
-        '200':
+        200:
           description: Success
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Booking'
+                $ref: '#/components/schemas/BarbershopInfo'
 
 components:
   schemas:
-    Booking:
+    BarbershopInfo:
       type: object
+      required:
+        - id
+        - name
+        - address
+        - opensAt
+        - closesAt
       properties:
         id:
           type: string
-        date:
+        name:
           type: string
-          format: date
+        address:
+          $ref: '#/components/schemas/AddressInfo'
+        opensAt:
+          type: integer
+          format: int64
+        closesAt:
+          type: integer
+          format: int64
+
+    AddressInfo:
+      type: object
+      required:
+        - id
+        - region
+        - city
+        - street
+      properties:
+        id:
+          type: string
+        region:
+          type: string
+        city:
+          type: string
+        street:
+          type: string
 
 
   

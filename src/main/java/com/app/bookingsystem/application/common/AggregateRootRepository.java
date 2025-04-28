@@ -21,7 +21,7 @@ public interface AggregateRootRepository<I extends AggregateRootId, A extends Ag
     @Nonnull
     Either<RuntimeException, A> update(@Nonnull A aggregateRoot, @Nonnull ThingMetadata metadata);
 
-    Either<RuntimeException ,Void> add(@Nonnull A aggregateRoot, @Nonnull ThingMetadata metadata);
+    Either<RuntimeException ,A> add(@Nonnull A aggregateRoot, @Nonnull ThingMetadata metadata);
 
     Either<RuntimeException ,Void> remove(@Nonnull I id);
 }

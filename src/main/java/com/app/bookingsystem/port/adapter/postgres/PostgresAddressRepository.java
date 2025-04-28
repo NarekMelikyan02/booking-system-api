@@ -1,7 +1,10 @@
 package com.app.bookingsystem.port.adapter.postgres;
 
 import static com.app.bookingsystem.port.adapter.postgres.QueryConstants.ID;
+import static com.app.bookingsystem.port.adapter.postgres.QueryConstants.IDS;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import com.app.bookingsystem.domain.adress.Address;
@@ -9,6 +12,7 @@ import com.app.bookingsystem.domain.adress.AddressRepository;
 import io.vavr.control.Either;
 import jakarta.annotation.Nonnull;
 import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -63,5 +67,29 @@ public class PostgresAddressRepository implements AddressRepository
         {
             return Either.left(e);
         }
+    }
+
+    @Nonnull
+    @Override
+    public List<Address> ofIds(Collection<Address.Id> ids)
+    {
+        return this.jdbcTemplate.query(
+            """
+                select a.* from address a where id in (:ids::uuid)          
+                """,
+            Map.of(IDS, ids.stream().toList()),
+            asAddress()
+        ).stream().toList();
+    }
+
+    @Nonnull
+    private static RowMapper<Address> asAddress()
+    {
+        return (rs, _) -> new Address(
+            Address.Id.of(rs.getString("id")),
+            rs.getString("region"),
+            rs.getString("city"),
+            rs.getString("street")
+        );
     }
 }

@@ -7,6 +7,8 @@ import java.util.UUID;
 
 import com.app.bookingsystem.domain.barebershop.Barbershop;
 import com.app.bookingsystem.domain.common.Gender;
+import com.app.bookingsystem.kernel.AggregateRoot;
+import com.app.bookingsystem.kernel.AggregateRootId;
 import com.app.bookingsystem.kernel.Identifier;
 import io.vavr.control.Either;
 import jakarta.annotation.Nonnull;
@@ -19,7 +21,7 @@ public record Worker(
     @Nonnull Integer age,
     @Nonnull Gender gender,
     @Nonnull Barbershop.Id barbershop
-)
+) implements AggregateRoot<Worker.Id>
 {
 
     @Nonnull
@@ -43,7 +45,7 @@ public record Worker(
         }
     }
 
-    public record Id(@Nonnull String value) implements Identifier
+    public record Id(@Nonnull String value) implements AggregateRootId
     {
 
         @Nonnull

@@ -40,6 +40,20 @@ public class PostgresBarbershopRepository implements BarbershopRepository
 
     @Nonnull
     @Override
+    public List<Barbershop> all()
+    {
+        return this.jdbcTemplate.query(
+            """
+                select b.id, b.address_id, b.name, b.opens_at, b.closes_at, b.metadata
+                 from barbersop b
+                
+                """,
+            asBarbershop()
+        ).stream().toList();
+    }
+
+    @Nonnull
+    @Override
     public Either<RuntimeException, Barbershop> ofId(@Nonnull Barbershop.Id id)
     {
         try
@@ -114,7 +128,7 @@ public class PostgresBarbershopRepository implements BarbershopRepository
     }
 
     @Override
-    public Either<RuntimeException, Void> add(
+    public Either<RuntimeException, Barbershop> add(
         @Nonnull Barbershop barbershop,
         @Nonnull ThingMetadata metadata
     )
@@ -140,7 +154,7 @@ public class PostgresBarbershopRepository implements BarbershopRepository
                     "thing_metadata", this.jsonMapper.serialize(metadata)
                 )
             );
-            return Either.right(null);
+            return Either.right(barbershop);
         }
         catch (DataAccessException e)
         {

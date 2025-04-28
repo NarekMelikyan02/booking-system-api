@@ -120,7 +120,7 @@ public class PostgresAppointmentRepository implements AppointmentRepository
     }
 
     @Override
-    public Either<RuntimeException, Void> add(@Nonnull Appointment appointment, @Nonnull ThingMetadata metadata)
+    public Either<RuntimeException, Appointment> add(@Nonnull Appointment appointment, @Nonnull ThingMetadata metadata)
     {
         try
         {
@@ -144,7 +144,7 @@ public class PostgresAppointmentRepository implements AppointmentRepository
                     "thing_metadata", this.jsonMapper.serialize(metadata)
                 )
             );
-            return Either.right(null);
+            return Either.right(appointment);
         }
         catch (DataAccessException e)
         {
